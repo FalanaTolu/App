@@ -315,13 +315,20 @@ h1 {
 }
 
 .page-nav button {
+  height: 2em;
+}
+
+.page-nav-btn {
   text-align: center;
   height: 2em;
   border: 1px solid grey;
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
 }
 
 .page-nav-num {
   width: 20px;
+  background-color: var(--primary-background-color);
 }
 
 .current {
