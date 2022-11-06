@@ -134,6 +134,7 @@ h1 {
   margin: 0.5em 0.5em 0 0;
   border: 2px solid var(--primary-button-color);
   border-radius: 15px;
+  background-color: var(--primary-background-color);
 }
 
 .link button:hover {
