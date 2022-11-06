@@ -31,7 +31,6 @@ const Profile = () => {
         description="Github profile information is displayed here using the Github API"
         type="App"
       />
-      '
       <Navigation />
       <ProfileView data={data} />
       <Outlet context={data} />
