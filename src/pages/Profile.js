@@ -25,7 +25,6 @@ const Profile = () => {
       exit={{ opacity: 1 }}
       className="profile-section"
     >
-      '{' '}
       <SEO
         title="Profile"
         name="Profile Page"
