@@ -22,7 +22,7 @@ export default function App() {
   const { theme } = ChangeTheme();
 
   return (
-    <section data-theme={theme}>
+    <section>
       <Routes location={background || location}>
         <Route path="/" element={<Home />} />
         <Route exact path="/user" element={<Profile />}>
