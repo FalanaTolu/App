@@ -24,7 +24,6 @@
   padding: 0;
   box-sizing: border-box;
   color: var(--primary-color);
-  background-color: var(--primary-background);
   text-decoration: none;
 }
 
@@ -34,6 +33,7 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1em;
   line-height: 1em;
+  background-color: var(--primary-background);
 }
 .nav-bar {
   display: flex;
@@ -69,6 +69,7 @@ body {
 .theme-btn {
   margin-left: auto;
   border: none;
+  background-color: var(--primary-background);
 }
 
 .loader-container {
@@ -277,6 +278,7 @@ h1 {
   border: 1px solid var(--contrast-color);
   position: absolute;
   z-index: 1;
+  background-color: var(--primary-background);
 }
 
 .modal-title {
@@ -293,6 +295,7 @@ h1 {
   top: 5px;
   right: 5px;
   position: absolute;
+  background-color: var(--primary-background);
 }
 
 .modal-nav-exit {
