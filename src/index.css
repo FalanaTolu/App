@@ -201,13 +201,14 @@ h1 {
 
 .list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 26em 26em;
   gap: 20px;
   width: 80%;
+  justify-content: center;
   margin: 0 auto;
-  padding: 10px;
-  /* border: 1px solid grey; */
+  padding: 8px;
   border-radius: 10px;
+  overflow-wrap: break-word;
 }
 
 .follow {
@@ -315,30 +316,31 @@ h1 {
 }
 
 .page-nav button {
-  height: 2em;
-}
-
-.page-nav-btn {
   text-align: center;
   height: 2em;
-  border: 1px solid grey;
+  border: 1px solid var(--item-border);
   color: var(--primary-color);
   background-color: var(--primary-background-color);
 }
 
 .page-nav-num {
   width: 20px;
+  color: var(--primary-color);
   background-color: var(--primary-background-color);
 }
 
 .current {
-  background-color: var(--primary-button-color);
-  color: var( --neutral-color);
+  color: var(--neutral-color) !important;
+  background-color: var(--primary-button-color) !important;
 }
 
 @media (max-width: 900px) {
   .profile {
     width: 90%;
+  }
+
+  .list {
+    grid-template-columns: 20em 20em;
   }
 
   .page-nav {

@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { Loader, GetFetch } from '../components';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { Loader, GetFetchPages } from '../components';
 
 const Following = () => {
   const user = useOutletContext();
 
-  const url = user.following_url.replace('{/other_user}', '');
+  const [page, setPage] = useState(1);
 
-  const { data, loading, error } = GetFetch(url);
+  const totalNum = user.following;
+  const per_page = 10;
+
+
+  const baseUrl = user.following_url.replace('{/other_user}', '');
+
+  const { data, loading, error, startIndex, totalPages } = GetFetchPages(
+    baseUrl,
+    totalNum,
+    page,
+    per_page
+  );
 
   if (loading) {
     return <Loader />;
@@ -18,8 +30,9 @@ const Following = () => {
   }
 
   return (
+    <>
     <div className="list follow">
-      {data?.map((following) => {
+      {data?.slice(startIndex, startIndex + per_page).map((following) => {
         return (
           <article className="followers" key={following.id}>
             <div>
@@ -40,6 +53,33 @@ const Following = () => {
         );
       })}
     </div>
+    <div className="page-nav">
+        <p>
+          Pages: {page} of {totalPages}&#160;&#160;{' '}
+        </p>
+        <button 
+          onClick={() => setPage((prev) => Math.max(prev - 1, 0))}
+          disabled={page <= 1}
+          aria-disabled={page <= 1}
+        >
+          <FaChevronLeft />
+        </button>
+        {Array.from({ length: totalPages }, (value, index) => index + 1).map(
+          (each, index) => (
+            <button key={index} onClick={() => setPage(each)} className={each === page ? "page-nav-num current" : "page-nav-num"}>
+              {each}
+            </button>
+          )
+        )}
+        <button
+          onClick={() => setPage((prev) => prev + 1)}
+          disabled={page >= totalPages}
+          aria-disabled={page >= totalPages}
+        >
+          <FaChevronRight />
+        </button>
+      </div>
+      </>
   );
 };
 
