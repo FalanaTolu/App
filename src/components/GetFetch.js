@@ -26,7 +26,7 @@ const GetFetch = (url) => {
     fetchUsers();
   }, []);
 
-  return { data, loading, error };
+  return { data, loading, error, fetchUsers };
 };
 
 const GetFetchPages = (baseUrl, totalNum, page, per_page) => {

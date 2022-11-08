@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
-import { Navigation, SEO, Loader, GetFetch } from '../components';
+import { Navigation, SEO, Loader, GetFetch, InputUser } from '../components';
 import { ProfileView } from '../pages';
 
-const url = `https://api.github.com/users/FalanaTolu`;
-
 const Profile = () => {
-  const { data, loading, error } = GetFetch(url);
+  const [user, setUser] = useState('FalanaTolu');
+  const [message, setMessage] = useState('');
+
+  const url = `https://api.github.com/users/${user}`;
+
+  const { data, loading, error, fetchUsers } = GetFetch(url);
 
   if (loading) {
     return <Loader />;
@@ -16,6 +19,11 @@ const Profile = () => {
   if (error) {
     return <h2>{`Fetch error: ${error.message}`}</h2>;
   }
+
+
+  user !== 'FalanaTolu' && fetchUsers()
+ 
+
 
   return (
     <m.section
@@ -32,6 +40,10 @@ const Profile = () => {
         type="App"
       />
       <Navigation />
+      <InputUser
+        onChange={(event) => setMessage(event.target.value)}
+        onClick={() => setUser(message)}
+      />
       <ProfileView data={data} />
       <Outlet context={data} />
     </m.section>

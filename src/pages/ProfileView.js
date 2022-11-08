@@ -26,7 +26,7 @@ const ProfileView = ({ data }) => {
             <span>Bio:</span> {data.bio}
           </p>
           <p>
-            <span>Email:</span> {data.email}falanatolulope@gmail.com
+            <span>Email:</span> {data.email}
           </p>
           <p>
             <span>Twitter: </span> {data.twitter_username}
